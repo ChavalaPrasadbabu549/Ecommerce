@@ -1,0 +1,20 @@
+:root {
+  --base-font-family: "Montserrat", sans-serif !important;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --Primary-color: #A09213;
+  --secondory-color: #877B0E;
+  --background-color-white: #FFFFFF;
+  --gradient-color: linear-gradient(90deg, #A09213, #877B0E);
+  --primary-text-color: #FFFFFF;
+  --secondory-text-color: #000000;
+}
+
+
+
+body {
+  margin: 0;
+
+}
