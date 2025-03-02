@@ -1,0 +1,278 @@
+/* header */
+.header {
+    background-color: var(--primary-text-color);
+    box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.top-bar {
+    background: var(--secondory-text-color);
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0px;
+}
+
+.top-bar-content h5 {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--common-text-color);
+}
+
+.top-bar-content .MuiList-root {
+    padding: 0px;
+    display: flex;
+}
+
+.top-bar-content .MuiList-root .MuiDivider-root {
+    border-color: var(--common-text-color);
+    margin: 0px 20px 0px 20px;
+}
+
+.top-bar-content .MuiList-root .MuiListItem-root {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #EDEDED;
+    padding: 0px 0px 0px 0px;
+    width: auto;
+}
+
+/* Main Header */
+.main-header {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header-left {
+    display: flex;
+    align-items: center;
+}
+
+.main-header-left h1 {
+    font-family: var(--base-font-family);
+    font-size: 30px;
+    font-weight: bolder;
+    line-height: 34px;
+    color: var(--secondory-text-color);
+    margin-left: 20px;
+}
+
+.main-header-left .menu-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.main-header-left img {
+    margin-left: 15px;
+    width: 81px;
+    height: 52px;
+    object-fit: fill;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #F3F9FB;
+    padding: 5px;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.search-bar .MuiSvgIcon-root {
+    color: #161616;
+    margin-left: 10px;
+}
+
+.search-bar input {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    color: var(--common-text-color-secondary);
+    text-transform: capitalize;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+}
+
+.account-section .MuiList-root {
+    padding: 0px;
+    display: flex;
+}
+
+.account-section .MuiList-root .MuiListItem-root:not(:first-child) {
+    margin-left: 20px;
+}
+
+.account-section .MuiList-root a .MuiListItem-root {
+    padding: 0px 0px 0px 0px;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.account-section .MuiList-root a {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--common-text-color-secondary);
+    text-decoration: none;
+}
+
+.account-section .MuiList-root a .MuiListItem-root p {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-left: 07px;
+    text-transform: capitalize;
+}
+
+.account-section .MuiList-root a .MuiListItem-root p sub {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #ff0000;
+    margin-left: 5px;
+}
+
+.account-section .MuiList-root .MuiDivider-root {
+    border-color: var(--common-text-color);
+    margin: 0px 20px 0px 20px;
+}
+
+.nav-categories {
+    padding: 18px 0px;
+}
+
+.categories-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-categories .MuiButton-root:not(:first-child) {
+    margin-left: 20px;
+}
+
+.nav-categories .MuiButton-root {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #222222;
+    background: #F3F9FB;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    border-radius: 20px;
+}
+
+.nav-button:hover {
+    background: #ddd;
+}
+
+.mega-menu {
+    position: relative;
+}
+
+.categories-list {
+    display: flex;
+    gap: 20px;
+}
+
+.category-item {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.subcategories-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    min-width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.subcategory-item {
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.subcategory-item:hover {
+    background: #f8f8f8;
+}
+
+.products-dropdown {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-width: 250px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.product-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.discount-box {
+    background: #ff9800;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.discount-box button {
+    background: white;
+    color: #ff9800;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+/* header */

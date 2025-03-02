@@ -51,6 +51,7 @@ const App = () => {
     <>
       <Routes>
         <Route index element={<UserRoutes />} />
+        <Route path="/home/*" element={<UserRoutes />} />
         <Route path='/vendor/*' element={<VendorRoutes />} />
         {/* <Route path='/superadmin/*' element={<SuperadminRoutes />} /> */}
       </Routes>
