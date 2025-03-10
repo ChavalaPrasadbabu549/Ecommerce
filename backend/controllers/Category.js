@@ -47,7 +47,7 @@ const Categorycontroller = {
         #swagger.autoBody = false
         #swagger.consumes = ['multipart/form-data']
         #swagger.parameters['picture'] = { in: 'formData', type: 'file', required: true,description: 'Category picture', accept: 'image/jpeg, image/png'},
-        #swagger.parameters['name'] = { in: 'formData', type: 'string', required: true },
+        #swagger.parameters['name'] = { in: 'formData', type: 'string', required: true, enum: ['Electronics', 'Mobile','Fashion', 'Home & Furniture', 'Appliances', 'Beauty & Personal Care', 'Sports & Fitness', 'Books', 'Grocery', 'Toys & Baby Products', 'Automotive']},
        */
     },
 
@@ -93,10 +93,10 @@ const Categorycontroller = {
         #swagger.consumes = ['multipart/form-data']
         #swagger.parameters['category_Id'] = { in: 'formData', type: 'string', required: true },
         #swagger.parameters['picture'] = { in: 'formData', type: 'file', required: false, description: 'Category picture', accept: 'image/jpeg, image/png'},
-        #swagger.parameters['name'] = { in: 'formData', type: 'string', required: false },
+        #swagger.parameters['name'] = { in: 'formData', type: 'string', required: false, enum: ['Electronics', 'Fashion', 'Home & Furniture', 'Appliances', 'Beauty & Personal Care', 'Sports & Fitness', 'Books', 'Grocery', 'Toys & Baby Products', 'Automotive'] },
         */
     },
-    
+
     // Change Category status
     async ChangeStatus(req, res) {
         try {
@@ -124,7 +124,6 @@ const Categorycontroller = {
         #swagger.consumes = ['multipart/form-data']
         */
     },
-
 
 }
 module.exports = {

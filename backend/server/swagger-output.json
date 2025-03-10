@@ -459,7 +459,20 @@
             "name": "name",
             "in": "formData",
             "type": "string",
-            "required": true
+            "required": true,
+            "enum": [
+              "Electronics",
+              "Mobile",
+              "Fashion",
+              "Home & Furniture",
+              "Appliances",
+              "Beauty & Personal Care",
+              "Sports & Fitness",
+              "Books",
+              "Grocery",
+              "Toys & Baby Products",
+              "Automotive"
+            ]
           }
         ],
         "responses": {
@@ -546,7 +559,19 @@
             "name": "name",
             "in": "formData",
             "type": "string",
-            "required": false
+            "required": false,
+            "enum": [
+              "Electronics",
+              "Fashion",
+              "Home & Furniture",
+              "Appliances",
+              "Beauty & Personal Care",
+              "Sports & Fitness",
+              "Books",
+              "Grocery",
+              "Toys & Baby Products",
+              "Automotive"
+            ]
           }
         ],
         "responses": {
@@ -803,12 +828,12 @@
         }
       }
     },
-    "/Product/addproduct": {
+    "/Electronic/addproduct": {
       "post": {
         "tags": [
-          "Product"
+          "Electronics"
         ],
-        "description": "",
+        "description": "Create a new electronics product with images, brand, specifications, and other details.",
         "consumes": [
           "multipart/form-data"
         ],
@@ -819,41 +844,93 @@
             "type": "string"
           },
           {
-            "name": "picture",
-            "in": "formData",
-            "type": "file",
-            "required": true,
-            "accept": "image/jpeg, image/png"
-          },
-          {
             "name": "name",
             "in": "formData",
             "type": "string",
-            "required": true
+            "required": true,
+            "description": "Name of the product"
           },
           {
             "name": "price",
             "in": "formData",
             "type": "number",
-            "required": true
-          },
-          {
-            "name": "description",
-            "in": "formData",
-            "type": "string",
-            "required": true
+            "required": true,
+            "description": "Price of the product"
           },
           {
             "name": "categoryId",
             "in": "formData",
             "type": "string",
-            "required": true
+            "required": true,
+            "description": "Category ID reference"
           },
           {
             "name": "subcategoryId",
             "in": "formData",
             "type": "string",
-            "required": true
+            "required": true,
+            "description": "Subcategory ID reference"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Description of the product"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Brand of the product",
+            "enum": [
+              "Apple",
+              "Samsung",
+              "Sony",
+              "LG",
+              "Dell",
+              "HP",
+              "Lenovo",
+              "Asus",
+              "Microsoft"
+            ]
+          },
+          {
+            "name": "model",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Model of the product"
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "JSON string containing specifications."
+          },
+          {
+            "name": "warranty",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Warranty period"
+          },
+          {
+            "name": "vendorId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Vendor ID reference"
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Upload one or multiple images",
+            "accept": "image/jpeg, image/png"
           }
         ],
         "responses": {
@@ -875,10 +952,114 @@
         }
       }
     },
-    "/Product/getallproducts": {
+    "/Mobiles/addMobiles": {
+      "post": {
+        "tags": [
+          "Mobiles"
+        ],
+        "description": "Create a new electronics product with images, brand, specifications, and other details.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Name of the product"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": true,
+            "description": "Price of the product"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Category ID reference"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Subcategory ID reference"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Description of the product"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Brand of the product",
+            "enum": [
+              "Apple",
+              "Real Me",
+              "Samsung",
+              "Sony",
+              "LG",
+              "Dell",
+              "HP",
+              "Lenovo",
+              "Asus",
+              "Microsoft"
+            ]
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "JSON string containing specifications."
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Upload one or multiple images",
+            "accept": "image/jpeg, image/png"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Mobiles/getallMobiles": {
       "get": {
         "tags": [
-          "Product"
+          "Mobiles"
         ],
         "description": "",
         "parameters": [
@@ -907,10 +1088,10 @@
         }
       }
     },
-    "/Product/updateproduct": {
+    "/Mobiles/updateMobiles": {
       "put": {
         "tags": [
-          "Product"
+          "Mobiles"
         ],
         "description": "",
         "consumes": [
@@ -926,44 +1107,65 @@
             "name": "productId",
             "in": "formData",
             "type": "string",
-            "required": true
+            "required": true,
+            "description": "ID of the product to be updated"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated product name"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": false,
+            "description": "Updated product price"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated product description"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated category ID"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated subcategory ID"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated brand name"
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated product specifications as JSON string"
           },
           {
             "name": "picture",
             "in": "formData",
             "type": "file",
             "required": false,
+            "description": "Upload one or multiple updated images",
             "accept": "image/jpeg, image/png"
-          },
-          {
-            "name": "name",
-            "in": "formData",
-            "type": "string",
-            "required": false
-          },
-          {
-            "name": "description",
-            "in": "formData",
-            "type": "string",
-            "required": false
-          },
-          {
-            "name": "price",
-            "in": "formData",
-            "type": "string",
-            "required": false
-          },
-          {
-            "name": "categoryId",
-            "in": "formData",
-            "type": "string",
-            "required": false
-          },
-          {
-            "name": "subcategoryId",
-            "in": "formData",
-            "type": "string",
-            "required": false
           }
         ],
         "responses": {
@@ -988,10 +1190,10 @@
         }
       }
     },
-    "/Product/getProductById/{productId}": {
+    "/Mobiles/getMobilesById/{productId}": {
       "get": {
         "tags": [
-          "Product"
+          "Mobiles"
         ],
         "description": "",
         "parameters": [

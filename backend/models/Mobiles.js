@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ProductSchema = mongoose.Schema(
+const MobileSchema = mongoose.Schema(
     {
         categoryId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -33,7 +33,7 @@ const ProductSchema = mongoose.Schema(
         brand: {
             type: String,
             enum: [
-                'Apple', 'Samsung', 'Sony', 'LG', 'Dell', 'HP', 'Lenovo', 'Asus',
+                'Apple', 'Samsung', 'Sony', 'LG', 'Dell', 'HP', 'Lenovo', 'Asus', 'Real Me',
                 'Acer', 'Bose', 'JBL', 'Boat', 'Realme', 'OnePlus', 'Xiaomi'
             ],
             required: true
@@ -44,7 +44,8 @@ const ProductSchema = mongoose.Schema(
             trim: true, // Trims whitespace from the input
         },
         specifications: {
-            type: mongoose.Schema.Types.Mixed
+            type: [{ key: String, value: String }], // Array of objects with 'key' and 'value'
+            default: [] // Default empty array
         },
         status: {
             type: Boolean,
@@ -57,6 +58,6 @@ const ProductSchema = mongoose.Schema(
     }
 );
 
-// Create and export Product model
-const Product = mongoose.model('Product', ProductSchema);
-module.exports = Product;
+// Create and export Mobile model
+const Mobile = mongoose.model('Mobile', MobileSchema);
+module.exports = Mobile;

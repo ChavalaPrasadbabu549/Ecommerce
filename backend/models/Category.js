@@ -4,6 +4,7 @@ const CategorySchema = mongoose.Schema(
     {
         name: {
             type: String,
+            enum: ['Electronics', 'Mobile', 'Fashion', 'Home & Furniture', 'Appliances', 'Beauty & Personal Care', 'Sports & Fitness', 'Books', 'Grocery', 'Toys & Baby Products', 'Automotive'],
             required: true, // Makes the name field mandatory
             trim: true, // Trims whitespace from the input
         },
