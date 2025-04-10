@@ -1,0 +1,47 @@
+.banner-section {
+    margin: 190px 0px 0px 0px;
+}
+
+.slider-container {
+    position: relative;
+}
+
+.banner-slide {
+    background: #015fc9;
+    
+    padding: 30px 20px;
+}
+.slick-list{
+    border-radius: 20px;
+}
+.image-section img {
+    width: 250px;
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 28px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-prev {
+    left: 10px;
+}
+
+.custom-next {
+    right: 10px;
+}
+
+.slick-dots {
+    bottom: 55px !important;
+    width: auto !important;
+    left: 0px !important;
+}

@@ -828,6 +828,201 @@
         }
       }
     },
+    "/SubSubCatgory/addSubSubCatgory": {
+      "post": {
+        "tags": [
+          "SubSubCatgory"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "category_id",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "subcategory_id",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Category picture",
+            "accept": "image/jpeg, image/png"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/SubSubCatgory/GetAllSubSubCatgory": {
+      "get": {
+        "tags": [
+          "SubSubCatgory"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/SubSubCatgory/updateSubSubCatgory": {
+      "put": {
+        "tags": [
+          "SubSubCatgory"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "category_Id",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": false,
+            "description": "Category picture",
+            "accept": "image/jpeg, image/png"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/SubSubCatgory/changestatus/{subcategory_Id}": {
+      "patch": {
+        "tags": [
+          "SubSubCatgory"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "subcategory_Id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/Electronic/addproduct": {
       "post": {
         "tags": [
@@ -945,6 +1140,294 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Fashion/addFashion": {
+      "post": {
+        "tags": [
+          "Fashion"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Name of the product"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": true,
+            "description": "Price of the product"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Category ID reference"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Subcategory ID reference"
+          },
+          {
+            "name": "subsubcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "subsubcategoryId ID reference"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Description of the product"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Brand of the product"
+          },
+          {
+            "name": "size",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "size of the product"
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "JSON string containing specifications."
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Upload one or multiple images",
+            "accept": "image/jpeg, image/png"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Fashion/getAllFashion": {
+      "get": {
+        "tags": [
+          "Fashion"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Fashion/updateFashion": {
+      "put": {
+        "tags": [
+          "Fashion"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "ID of the product to be updated"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated product name"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": false,
+            "description": "Updated product price"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated product description"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated category ID"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated subcategory ID"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated brand name"
+          },
+          {
+            "name": "size",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated size name"
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Updated product specifications as JSON string"
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": false,
+            "description": "Upload one or multiple updated images",
+            "accept": "image/jpeg, image/png"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Fashion/getFashionById/{productId}": {
+      "get": {
+        "tags": [
+          "Fashion"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"

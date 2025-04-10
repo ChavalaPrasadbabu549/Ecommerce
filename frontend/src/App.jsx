@@ -38,7 +38,7 @@ const UserRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/home" element={<Home />} />
+        <Route index element={<Home />} />
       </Route>
     </Routes>
   );
@@ -51,7 +51,7 @@ const App = () => {
     <>
       <Routes>
         <Route index element={<UserRoutes />} />
-        <Route path="/home/*" element={<UserRoutes />} />
+        <Route path="*" element={<UserRoutes />} />
         <Route path='/vendor/*' element={<VendorRoutes />} />
         {/* <Route path='/superadmin/*' element={<SuperadminRoutes />} /> */}
       </Routes>

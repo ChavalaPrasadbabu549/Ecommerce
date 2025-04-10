@@ -1,8 +1,8 @@
 
 import React from 'react'
-import { Box, Button, Container, List, ListItem, Typography } from '@mui/material'
+import { Container, List, ListItem, Typography } from '@mui/material'
 import { Link } from 'react-router-dom';
-import '../../../styles/user.css';
+import '../../../styles/header.css';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
@@ -194,7 +194,6 @@ const categoriesData = {
 };
 
 const Header = () => {
-
 
     return (
         <>
