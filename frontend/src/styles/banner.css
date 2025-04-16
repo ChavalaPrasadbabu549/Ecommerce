@@ -8,12 +8,49 @@
 
 .banner-slide {
     background: #015fc9;
-    
-    padding: 30px 20px;
+    padding: 20px;
 }
-.slick-list{
+
+.banner-text h6 {
+    font-family: var(--base-font-family);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--primary-text-color);
+
+}
+
+.banner-text h1 {
+    font-family: var(--base-font-family);
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 68px;
+    color: var(--primary-text-color);
+    margin-bottom: 10px;
+}
+
+.banner-text p {
+    font-family: var(--base-font-family);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--primary-text-color);
+    margin-bottom: 15px;
+}
+
+/* .banner-image {
+    display: flex;
+    justify-content: end;
+}
+
+.banner-image img {
+    width: 500px;
+} */
+
+.slick-list {
     border-radius: 20px;
 }
+
 .image-section img {
     width: 250px;
 }

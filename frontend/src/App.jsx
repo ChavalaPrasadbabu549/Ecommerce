@@ -5,6 +5,7 @@ import Home from './modules/user/pages/Home';
 import VendorSidebar from './modules/vendor/components/Sidebar';
 import VendorLogin from './modules/vendor/pages/Login';
 import VendorDashboard from './modules/vendor/pages/Dashboard'
+import Categories from './modules/user/pages/Categories';
 
 
 // const SuperadminRoutes = () => {
@@ -39,6 +40,7 @@ const UserRoutes = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path='/categories' element={<Categories />} />
       </Route>
     </Routes>
   );

@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../../styles/features.css'
+import { Container } from '@mui/material';
 
 const Features = () => {
     return (
-        <>
+        <Container maxWidth="xl">
             <div className="features-container">
                 <div>
                     <p className="feature-title">FASTED DELIVERY</p>
@@ -22,7 +23,7 @@ const Features = () => {
                     <p className="feature-sub">Live contact/message</p>
                 </div>
             </div>
-        </>
+        </Container>
     )
 }
 
