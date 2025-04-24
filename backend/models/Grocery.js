@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const electronicsSchema = mongoose.Schema({
+const grocerySchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -21,7 +21,7 @@ const electronicsSchema = mongoose.Schema({
     },
     subsubcategoryId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'SubSubCatgory',
+        ref: 'SubSubCategory',
         required: true
     },
     picture: [{
@@ -30,26 +30,40 @@ const electronicsSchema = mongoose.Schema({
     }],
     brand: {
         type: String,
-        enum: [
-            'Apple', 'Samsung', 'Sony', 'LG', 'Dell', 'HP', 'Lenovo', 'Asus',
-            'Acer', 'Bose', 'JBL', 'Boat', 'Realme', 'OnePlus', 'Xiaomi'
-        ],
         required: true
     },
-    model: {
+    quantity: {
         type: String,
         required: true
     },
-    specifications: {
-        type: mongoose.Schema.Types.Mixed
+    packOf: {
+        type: Number,
+        default: 1
     },
-    warranty: {
+    containerType: {
         type: String,
-        enum: ['6 Months', '1 Year', '2 Years', 'No Warranty'],
-        required: true
+    },
+    foodPreference: {
+        type: String,
+        enum: ['Vegetarian', 'Non-Vegetarian', 'Vegan'],
+    },
+    shelfLife: {
+        type: String, 
+    },
+    manufacturingDate: {
+        type: Date,
+    },
+    expiryDate: {
+        type: Date,
     },
     description: {
         type: String
+    },
+    ingredients: {
+        type: String
+    },
+    nutritionalInfo: {
+        type: mongoose.Schema.Types.Mixed 
     },
     vendorId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -60,12 +74,11 @@ const electronicsSchema = mongoose.Schema({
         type: Boolean,
         default: true
     }
-
 },
     {
         timestamps: true
     }
 );
 
-const Electronics = mongoose.model('Electronics', electronicsSchema);
-module.exports = Electronics;
+const Grocery = mongoose.model("Grocery", grocerySchema);
+module.exports = Grocery;

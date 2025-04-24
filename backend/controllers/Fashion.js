@@ -90,7 +90,6 @@ const FashionController = {
             if (specifications) {
                 product.specifications = typeof specifications === 'string' ? JSON.parse(specifications) : specifications;
             }
-
             // Handling file uploads (for multiple images)
             if (req.files && req.files.length > 0) {
                 const pictures = req.files.map(file => file.filename);

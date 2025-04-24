@@ -462,7 +462,6 @@
             "required": true,
             "enum": [
               "Electronics",
-              "Mobile",
               "Fashion",
               "Home & Furniture",
               "Appliances",
@@ -470,8 +469,7 @@
               "Sports & Fitness",
               "Books",
               "Grocery",
-              "Toys & Baby Products",
-              "Automotive"
+              "Toys & Baby Products"
             ]
           }
         ],
@@ -1023,7 +1021,95 @@
         }
       }
     },
-    "/Electronic/addproduct": {
+    "/Product/addproduct": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Create a new product with images, brand, specifications, and other details.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "accept": "image/jpeg, image/png"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Category ID reference"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Subcategory ID reference"
+          },
+          {
+            "name": "subsubcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "sub subcategory ID reference"
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "JSON string containing specifications."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Electronic/addProduct": {
       "post": {
         "tags": [
           "Electronics"
@@ -1065,6 +1151,13 @@
             "type": "string",
             "required": true,
             "description": "Subcategory ID reference"
+          },
+          {
+            "name": "subsubcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "sub subcategory ID reference"
           },
           {
             "name": "description",
@@ -1113,13 +1206,6 @@
             "description": "Warranty period"
           },
           {
-            "name": "vendorId",
-            "in": "formData",
-            "type": "string",
-            "required": true,
-            "description": "Vendor ID reference"
-          },
-          {
             "name": "picture",
             "in": "formData",
             "type": "file",
@@ -1140,6 +1226,213 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Electronic/updateProduct": {
+      "put": {
+        "tags": [
+          "Electronics"
+        ],
+        "description": "update a new electronics product with images, brand, specifications, and other details.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "ID of the product to be updated"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Name of the product"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": false,
+            "description": "Price of the product"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Category ID reference"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Subcategory ID reference"
+          },
+          {
+            "name": "subsubcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "sub subcategory ID reference"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Description of the product"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Brand of the product",
+            "enum": [
+              "Apple",
+              "Samsung",
+              "Sony",
+              "LG",
+              "Dell",
+              "HP",
+              "Lenovo",
+              "Asus",
+              "Microsoft"
+            ]
+          },
+          {
+            "name": "model",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Model of the product"
+          },
+          {
+            "name": "specifications",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "JSON string containing specifications."
+          },
+          {
+            "name": "warranty",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Warranty period"
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": false,
+            "description": "Upload one or multiple images",
+            "accept": "image/jpeg, image/png"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Electronic/getallproducts": {
+      "get": {
+        "tags": [
+          "Electronics"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Electronic/getProductById/{productId}": {
+      "get": {
+        "tags": [
+          "Electronics"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -1707,6 +2000,161 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Grocery/addProduct": {
+      "post": {
+        "tags": [
+          "Grocery"
+        ],
+        "description": "Create a new grocery product with images and additional nutritional and packaging details.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Name of the product"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": true,
+            "description": "Price of the product"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Category ID reference"
+          },
+          {
+            "name": "subcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Subcategory ID reference"
+          },
+          {
+            "name": "subsubcategoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Sub-subcategory ID reference"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Description of the product"
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Brand of the product"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Quantity (e.g., 1kg, 500g)"
+          },
+          {
+            "name": "packOf",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Pack size (e.g., Pack of 2, Pack of 6)"
+          },
+          {
+            "name": "containerType",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Type of container (e.g., Box, Bottle, Pouch)"
+          },
+          {
+            "name": "foodPreference",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Food preference (e.g., Vegetarian, Non-Vegetarian, Vegan)"
+          },
+          {
+            "name": "shelfLife",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Shelf life of the product (e.g., 6 months)"
+          },
+          {
+            "name": "manufacturingDate",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Manufacturing date (YYYY-MM-DD)"
+          },
+          {
+            "name": "expiryDate",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Expiry date (YYYY-MM-DD)"
+          },
+          {
+            "name": "ingredients",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Comma-separated list of ingredients"
+          },
+          {
+            "name": "nutritionalInfo",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "JSON string containing nutritional info."
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Upload one or multiple images",
+            "accept": "image/jpeg, image/png"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
