@@ -1,3 +1,77 @@
+.category-section {
+    margin-top: 30px;
+}
+
+.category-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-content h6 {
+    font-family: var(--base-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #232321;
+}
+
+.category-content h6 span {
+    font-weight: extra-bold;
+    color: #FCBD01;
+}
+
+.category-content .MuiButton-root {
+    font-family: var(--base-font-family);
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 20px;
+    padding: 10px 20px;
+    background-color: #FCBD01;
+    border-radius: 5px;
+    color: #0A0A0A;
+    text-transform: capitalize;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-section .MuiDivider-root {
+    border: 1px solid #D9D9D9;
+    margin: 15px 0px;
+}
+
+.category-box {
+    width: 120px;
+    height: 120px;
+    background-color: #F5F5F5;
+    border-radius: 50%;
+    transition: border 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-box img {
+    width: 60%;
+    height: 60%;
+    object-fit: fill;
+}
+
+.category-list p {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2px;
+    color: var(--secondory-text-color);
+    margin-top: 20px;
+}
+
 /* Main container */
 .categories-container {
     margin: 200px 0px 0px 0px;

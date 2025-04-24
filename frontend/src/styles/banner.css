@@ -8,7 +8,7 @@
 
 .banner-slide {
     background: #015fc9;
-    padding: 20px;
+    padding: 20px 30px;
 }
 
 .banner-text h6 {
@@ -22,30 +22,26 @@
 
 .banner-text h1 {
     font-family: var(--base-font-family);
-    font-size: 60px;
+    font-size: 45px;
     font-weight: 500;
-    line-height: 68px;
+    line-height: 60px;
     color: var(--primary-text-color);
     margin-bottom: 10px;
 }
 
 .banner-text p {
     font-family: var(--base-font-family);
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 600;
-    line-height: 32px;
+    line-height: 28px;
     color: var(--primary-text-color);
     margin-bottom: 15px;
 }
 
-/* .banner-image {
-    display: flex;
-    justify-content: end;
-}
 
-.banner-image img {
-    width: 500px;
-} */
+.banner-image {
+    height: 350px;
+}
 
 .slick-list {
     border-radius: 20px;
@@ -80,5 +76,13 @@
 .slick-dots {
     bottom: 55px !important;
     width: auto !important;
-    left: 0px !important;
+    left: 10px !important;
 }
+.slick-dots li button:before{
+    color: var(--primary-text-color) !important;
+}
+/* .slick-dots li.slick-active button:before{
+    width: 25px !important;
+    height: 8px !important;
+    color: var(--primary-text-color);
+} */

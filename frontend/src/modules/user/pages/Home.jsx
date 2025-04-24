@@ -2,23 +2,50 @@ import React from 'react'
 import Banner from '../../user/compnents/Banner'
 import Features from '../../user/compnents/Features'
 import Topcategories from '../compnents/Top_categories';
-import banner from '../../../assets/banner.svg'
+import deliver_icon from '../../../assets/Package.svg';
+import tropy_icon from '../../../assets/Trophy.svg';
+import creditcard_icon from "../../../assets/CreditCard.svg";
+import headphones_icon from '../../../assets/Headphones.svg';
+import grocery from '../../../assets/grocery.svg';
 
 const Home = () => {
     const categories = [
-        { name: 'Mobile', img: 'https://images.unsplash.com/photo-1600180750707-7bcf9a30c4a9' }, // Mobile Image
-        { name: 'Cosmetics', img: 'https://images.unsplash.com/photo-1596033710122-15323d06ba6f' }, // Cosmetics Image
-        { name: 'Electronics', img: 'https://images.unsplash.com/photo-1604584705866-8d4c5b4d8a0a' }, // Electronics Image
-        { name: 'Furniture', img: 'https://images.unsplash.com/photo-1590987635449-74fe89f745e4' }, // Furniture Image
-        { name: 'Watches', img: 'https://images.unsplash.com/photo-1521444981112-0599f5b04c6e' }, // Watches Image
-        { name: 'Decor', img: 'https://images.unsplash.com/photo-1526373953463-bf0c4d268a0c' }, // Decor Image
+        { name: 'Mobile', img: grocery },
+        { name: 'Cosmetics', img: grocery },
+        { name: 'Electronics', img: grocery },
+        { name: 'Furniture', img: grocery },
+        { name: 'Watches', img: grocery },
+        { name: 'Decor', img: grocery },
     ];
+    const featureData = [
+        {
+            title: "FASTED DELIVERY",
+            subtitle: "Delivery in 24/H",
+            icon: deliver_icon
+        },
+        {
+            title: "24 HOURS RETURN",
+            subtitle: "100% money-back guarantee",
+            icon: tropy_icon
+        },
+        {
+            title: "SECURE PAYMENT",
+            subtitle: "Your money is safe",
+            icon: creditcard_icon
+        },
+        {
+            title: "SUPPORT 24/7",
+            subtitle: "Live contact/message",
+            icon: headphones_icon
+        },
+    ];
+
 
 
     return (
         <>
             <Banner />
-            <Features />
+            <Features featureData={featureData} />
             <Topcategories categories={categories} />
         </>
     )

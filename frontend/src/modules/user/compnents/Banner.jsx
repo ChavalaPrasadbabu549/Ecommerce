@@ -3,22 +3,22 @@ import Slider from 'react-slick';
 import '../../../styles/banner.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Container, Typography, Button } from '@mui/material';
+import banner from '../../../assets/banner.svg';
 import Grid from "@mui/material/Grid2";
-import { Container, Typography } from '@mui/material'
-import banner from '../../../assets/banner.svg'
-
 
 const Banner = () => {
     const sliderRef = useRef();
+
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false
+        arrows: false,
     };
 
     const slides = [
@@ -26,37 +26,38 @@ const Banner = () => {
             title: 'LATEST NIKE SHOES',
             subtitle: 'Best Deal Online on smart watches',
             offer: 'UP to 80% OFF',
-            image: banner
+            image: banner,
         },
         {
             title: 'ADIDAS SUPER SALE',
             subtitle: 'Limited Time Offer',
             offer: 'UP to 70% OFF',
-            image: 'https://static.nike.com/a/images/t_default/8c6e2b5f-4f3d-42ac-b20f-7589fc083a5b/air-jordan-1-retro-high-og-mens-shoes-0F5QKc.png'
+            image: banner,
         },
         {
-            title: 'ADIDAS SUPER SALE',
-            subtitle: 'Limited Time Offer',
-            offer: 'UP to 90% OFF',
-            image: 'https://static.nike.com/a/images/t_default/8c6e2b5f-4f3d-42ac-b20f-7589fc083a5b/air-jordan-1-retro-high-og-mens-shoes-0F5QKc.png'
+            title: 'PUMA EXCLUSIVE DEALS',
+            subtitle: 'Grab your style now',
+            offer: 'Flat 60% OFF',
+            image: banner,
         },
     ];
+
     return (
-        <section className='banner-section'>
+        <section className="banner-section">
             <Container maxWidth="xl">
                 <div className="slider-container">
                     <Slider ref={sliderRef} {...settings}>
                         {slides.map((slide, index) => (
                             <div key={index} className="banner-slide">
-                                <Grid container spacing={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: "center" }}>
-                                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 5 }} >
+                                <Grid container spacing={3} alignItems="center">
+                                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 6 }}>
                                         <div className="banner-text">
-                                            <Typography >{slide.subtitle}</Typography>
-                                            <Typography variant='h1'>{slide.title}</Typography>
-                                            <Typography variant='h6'>{slide.offer}</Typography>
+                                            <Typography variant="h6">{slide.subtitle}</Typography>
+                                            <Typography variant="h1">{slide.title}</Typography>
+                                            <Typography >{slide.offer}</Typography>
                                         </div>
                                     </Grid>
-                                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 5 }} >
+                                    <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 6 }}>
                                         <div className="banner-image">
                                             <img src={slide.image} alt={slide.title} className="shoe-image" />
                                         </div>
@@ -66,7 +67,6 @@ const Banner = () => {
                         ))}
                     </Slider>
 
-                    {/* Arrows inside JSX */}
                     <div className="custom-arrow custom-prev" onClick={() => sliderRef.current.slickPrev()}>
                         &#8592;
                     </div>
@@ -76,7 +76,7 @@ const Banner = () => {
                 </div>
             </Container>
         </section>
-    )
-}
+    );
+};
 
-export default Banner
+export default Banner;
