@@ -1,0 +1,24 @@
+.breadcrumbs-section {
+    margin: 200px 0px 0px 0px;
+    background-color: var(--common-use-background);
+    padding: 14px 0px;
+}
+
+.breadcrumbs-section .MuiBreadcrumbs-root ol li a {
+    font-family: var(--base-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--secondcustom-text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs-section .MuiBreadcrumbs-root ol .MuiBreadcrumbs-separator {
+    margin: 0px 10px;
+}
+
+.breadcrumbs-section .MuiBreadcrumbs-root ol li a:hover {
+    color: #2DA5F3;
+}

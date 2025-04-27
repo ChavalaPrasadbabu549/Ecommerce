@@ -5,7 +5,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Container, Typography, Button } from '@mui/material';
 import banner from '../../../assets/banner.svg';
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
+import CommonGrid from './CommonGrid';
 
 const Banner = () => {
     const sliderRef = useRef();
@@ -14,7 +15,7 @@ const Banner = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,

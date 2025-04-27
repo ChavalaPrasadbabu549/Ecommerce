@@ -1,0 +1,29 @@
+.custom-button .view-btn {
+    font-family: var(--base-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 10px 20px;
+    background-color: #FCBD01;
+    border-radius: 5px;
+    color: #0A0A0A;
+    text-transform: capitalize;
+}
+
+.custom-button .view-btn :hover {
+    background-color: unset;
+}
+
+.custom-button .back-btn {
+    min-width: 0px !important;
+    padding: 0px;
+}
+
+.custom-button .back-btn:hover {
+    background-color: unset;
+}
+
+.custom-button .back-btn .MuiSvgIcon-root {
+    font-size: 30px;
+    color: #121212;
+}

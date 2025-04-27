@@ -1,64 +1,72 @@
 import React from 'react';
-import { Box, Typography, Paper, Button, Breadcrumbs, Link } from '@mui/material';
-import { Home, ChevronRight } from '@mui/icons-material';
-import Grid from "@mui/material/Grid2";
-import '../../../styles/categories.css'
+import '../../../styles/categories.css';
+import { useNavigate } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
+import grocery from '../../../assets/grocery.svg';
+import { Container, } from '@mui/material';
+import Grid from "@mui/material/Grid";
+import CustomBreadcrumbs from '../compnents/CustomBreadcrumbs';
+import CategoryCard from '../compnents/CategoryCard';
+import CustomPagination from '../compnents/CustomPagination';
+
 
 const categories = [
-    'Mobile',
-    'Cosmetics',
-    'Electronics',
-    'Furniture',
-    'Watches',
-    'Decor'
+    { name: 'Mobile', img: grocery },
+    { name: 'Cosmetics', img: grocery },
+    { name: 'Electronics', img: grocery },
+    { name: 'Furniture', img: grocery },
+    { name: 'Watches', img: grocery },
+    { name: 'Home Decor', img: grocery },
+    { name: 'Kitchen Appliances', img: grocery },
+    { name: 'Books', img: grocery },
+    { name: 'Toys', img: grocery },
+    { name: 'Fitness Equipment', img: grocery },
+    { name: 'Gaming', img: grocery },
+    { name: 'Fashion', img: grocery },
+    { name: 'Jewelry', img: grocery },
+    { name: 'Groceries', img: grocery },
+    { name: 'Pet Supplies', img: grocery },
+    { name: 'Stationery', img: grocery },
+    { name: 'Garden Tools', img: grocery },
+    { name: 'Automobile Accessories', img: grocery },
+    { name: 'Baby Products', img: grocery },
+    { name: 'Health & Wellness', img: grocery },
+    { name: 'Footwear', img: grocery },
+    { name: 'Music Instruments', img: grocery },
+    { name: 'Beauty Products', img: grocery },
+    { name: 'Sports Gear', img: grocery },
+    { name: 'Sunglasses', img: grocery },
+    { name: 'Handbags', img: grocery },
+    { name: 'Home Essentials', img: grocery },
+    { name: 'Smart Home Devices', img: grocery },
+    { name: 'Luggage & Travel', img: grocery },
+    { name: 'Craft Supplies', img: grocery },
+    { name: 'Luggage & Travel', img: grocery },
+    { name: 'Craft Supplies', img: grocery }
 ];
 
 const Categories = () => {
+    const navigate = useNavigate();
+    const breadcrumbItems = [
+    { label: 'Home', link: '/', icon: Home },
+    { label: 'All Categories', link: '/categories' },
+];
     return (
-        <Box className="categories-container">
-            {/* Breadcrumbs */}
-            <Breadcrumbs
-                separator={<ChevronRight fontSize="small" />}
-                aria-label="breadcrumb"
-                className="breadcrumbs"
-            >
-                <Link href="/" className="breadcrumb-link">
-                    <Home fontSize="small" className="breadcrumb-icon" />
-                    Home
-                </Link>
-                <Typography color="text.primary" className="breadcrumb-current">
-                    All Categories
-                </Typography>
-            </Breadcrumbs>
-
-            {/* Header */}
-            <Typography variant="h4" className="categories-header">
-                All Categories
-            </Typography>
-            <Typography variant="body1" className="categories-count">
-                Showing 1 - 40 of 145 items
-            </Typography>
-
-            {/* Categories Grid */}
-            <Grid container spacing={2} className="categories-grid">
-                {[1, 2].map((section) => (
-                    <React.Fragment key={section}>
+        <>
+            <CustomBreadcrumbs breadcrumbItems={breadcrumbItems} />
+            <section className='all-categories'>
+                <Container maxWidth="xl">
+                    <CustomPagination />
+                    <Grid container spacing={2} rowSpacing={7.625}>
                         {categories.map((category, index) => (
-                            <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 2 }} key={`${section}-${index}`}>
-                                <Paper elevation={1} className="category-card">
-                                    <Typography variant="h6" className="category-name">
-                                        {category}
-                                    </Typography>
-                                    <Button variant="outlined" size="small" className="view-button">
-                                        View Products
-                                    </Button>
-                                </Paper>
+                            <Grid key={index} item size={{ xs: 12, sm: 6, md: 3, lg: 2 }}>
+                                <CategoryCard category={category} onClick={() => navigate(`/categories/${category.name}`)} />
                             </Grid>
                         ))}
-                    </React.Fragment>
-                ))}
-            </Grid>
-        </Box>
+                    </Grid>
+                </Container>
+            </section>
+        </>
     );
 };
 

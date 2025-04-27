@@ -1,0 +1,37 @@
+.custom-typography .category-text-h6 {
+    font-family: var(--base-font-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #232321;
+}
+
+.custom-typography .category-text-h6 span {
+    font-weight: extra-bold;
+    color: #FCBD01;
+}
+
+.custom-typography .category-list-body1 {
+    font-family: var(--base-font-family);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    color: var(--secondory-text-color);
+    margin-top: 20px;
+}
+
+.custom-typography .categories-text-h4 {
+    font-family: var(--base-font-family);
+    font-size: 20px;
+    font-weight: bolder;
+    line-height: 20px;
+    color: var(--secondory-text-color);
+}
+
+.custom-typography .categories-content-text-p {
+    font-family: var(--secondbase-font-family);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #171520;
+}

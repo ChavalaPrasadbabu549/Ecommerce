@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from "react-router-dom";
 import { List, ListItem } from '@mui/material';
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid"; 
 import { useLocation } from "react-router-dom";
 import react_icon from '../../../assets/react.svg';
 

@@ -1,5 +1,6 @@
 :root {
   --base-font-family: "Lato", sans-serif !important;
+  --secondbase-font-family: "Inter", sans-serif !important;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,6 +14,10 @@
   --custom-text-color: #191C1F;
   --secondcustom-text-color: #5F6C72;
   --common-text-color-secondary: #666666;
+  --common-use-background: #F2F4F5;
+  --login-text-color: #2C2C2C;
+  --secondory-background-color: #FFFFFF;
+  --textfiled-border-color: #C9CFD7;
 }
 
 body {

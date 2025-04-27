@@ -6,6 +6,7 @@ import VendorSidebar from './modules/vendor/components/Sidebar';
 import VendorLogin from './modules/vendor/pages/Login';
 import VendorDashboard from './modules/vendor/pages/Dashboard'
 import Categories from './modules/user/pages/Categories';
+import ProductList from './modules/user/compnents/ProductList';
 
 
 // const SuperadminRoutes = () => {
@@ -41,6 +42,7 @@ const UserRoutes = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path='/categories' element={<Categories />} />
+          <Route path="/categories/:categoryName" element={<ProductList />} />
       </Route>
     </Routes>
   );

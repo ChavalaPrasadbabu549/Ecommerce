@@ -1,40 +1,33 @@
 import React from 'react';
-import { Button, Typography, Container, Divider } from '@mui/material';
-import Grid from "@mui/material/Grid2";
+import { Container, Divider, Grid } from '@mui/material';
+import CustomTypography from './CustomTypography';
+import CustomButton from './CustomButton';
+import { useNavigate } from "react-router-dom";
+import CategoryCard from './CategoryCard';
 
 
 
 const Topcategories = ({ categories }) => {
+    const navigate = useNavigate()
     return (
         <section className='category-section'>
             <Container maxWidth="xl">
                 <div className='category-content'>
-                    <Typography variant="h6" >
-                        SHOP FROM <span>TOP CATEGORIES</span>
-                    </Typography>
-                    <Button>View All</Button>
+                    <CustomTypography label="SHOP FROM" variant="h6" className="category-text-h6">
+                        <span>TOP CATEGORIES</span>
+                    </CustomTypography>
+                    <CustomButton type="navigate" label="View All" onClick={() => navigate('/categories')} className="view-btn" />
                 </div>
                 <Divider />
                 <Grid container spacing={2}>
                     {categories.map((category, index) => (
-                        <Grid key={index} item size={{ xs: 12, sm: 12, md: 12, lg: 2 }}>
-                            <div className='category-list'>
-                                <div className='category-box'
-                                    onMouseEnter={(e) => (e.currentTarget.style.border = '2px solid #008ECC')}
-                                    onMouseLeave={(e) => (e.currentTarget.style.border = '2px solid #F5F5F5')}
-                                >
-                                    <img
-                                        src={category.img}
-                                        alt={category.name}
-                                    />
-                                </div>
-                                <Typography variant="body2">{category.name}</Typography>
-                            </div>
+                        <Grid key={index} item size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
+                            <CategoryCard category={category} />
                         </Grid>
                     ))}
                 </Grid>
             </Container>
-        </section>
+        </section >
     )
 }
 

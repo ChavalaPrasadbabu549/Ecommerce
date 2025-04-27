@@ -245,7 +245,7 @@
 
 .subcategory-item:hover {
     font-weight: 700;
-    background: #F2F4F5;
+    background: var(--common-use-background);
     color: var(--custom-text-color);
 }
 
@@ -265,7 +265,7 @@
 }
 
 .product-item:hover {
-    background: #F2F4F5;
+    background: var(--common-use-background);
 }
 
 .product-item p {
