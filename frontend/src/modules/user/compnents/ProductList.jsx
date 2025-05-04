@@ -1,72 +1,116 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import grocery from '../../../assets/grocery.svg';
+import zara from '../../../assets/zara.jpg';
+import zara_women from '../../../assets/zara-women.jpg';
 import { Home } from '@mui/icons-material';
 import { Container, Grid } from '@mui/material';
 import CustomBreadcrumbs from '../compnents/CustomBreadcrumbs';
-import ProductCard from './ProductCard';
-import CustomPagination from './CustomPagination';
-import CustomTypography from './CustomTypography';
-import CustomFilters from './CustomFilters';
-
+import ProductCard from '../compnents/ProductCard';
+import CustomPagination from '../compnents/CustomPagination';
+import CustomTypography from '../compnents/CustomTypography';
+import CustomFilters from '../compnents/CustomFilters';
 
 const dummyProducts = [
     {
         name: 'ZARA Suit Blazer Midnight Black Cotton',
-        rating: 4.7,
+        rating: 4,
+        ratingCount: 120,
         price: '₹125',
-        img: grocery
+        img: zara,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Blazer+1",
+            "https://via.placeholder.com/60x60?text=Blazer+2",
+            "https://via.placeholder.com/60x60?text=Blazer+3"
+        ]
     },
     {
         name: 'ZARA Black SunGlasses Anti Dust Resistant',
-        rating: 4.7,
+        rating: 5,
+        ratingCount: 98,
         price: '₹125',
-        img: grocery
+        img: zara_women,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Sunglass+1",
+            "https://via.placeholder.com/60x60?text=Sunglass+2"
+        ]
     },
     {
         name: 'ZARA White Sneakers Lightweight Comfort Fit',
         rating: 4.5,
+        ratingCount: 76,
         price: '₹199',
-        img: grocery
+        img: zara,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Sneaker+1",
+            "https://via.placeholder.com/60x60?text=Sneaker+2",
+            "https://via.placeholder.com/60x60?text=Sneaker+3"
+        ]
     },
     {
         name: 'ZARA Women’s Floral Print Summer Dress',
         rating: 4.8,
+        ratingCount: 150,
         price: '₹149',
-        img: grocery
+        img: zara_women,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Dress+1",
+            "https://via.placeholder.com/60x60?text=Dress+2"
+        ]
     },
     {
         name: 'ZARA Men’s Slim Fit Denim Jeans',
         rating: 4.6,
+        ratingCount: 89,
         price: '₹179',
-        img: grocery
+        img: zara,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Jeans+1",
+            "https://via.placeholder.com/60x60?text=Jeans+2"
+        ]
     },
     {
         name: 'ZARA Leather Crossbody Bag Compact Style',
         rating: 4.4,
+        ratingCount: 45,
         price: '₹159',
-        img: grocery
+        img: zara_women,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Bag+1",
+            "https://via.placeholder.com/60x60?text=Bag+2"
+        ]
     },
     {
         name: 'ZARA Cotton Crewneck T-Shirt (Pack of 2)',
         rating: 4.3,
+        ratingCount: 134,
         price: '₹99',
-        img: grocery
+        img: zara,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Shirt+1",
+            "https://via.placeholder.com/60x60?text=Shirt+2"
+        ]
     },
     {
         name: 'ZARA Wool Blend Winter Scarf',
         rating: 4.7,
+        ratingCount: 67,
         price: '₹89',
-        img: grocery
+        img: zara_women,
+        thumbnails: [
+            "https://via.placeholder.com/60x60?text=Scarf+1",
+            "https://via.placeholder.com/60x60?text=Scarf+2"
+        ]
     }
 ];
+
+
 
 const ProductList = () => {
     const { categoryName } = useParams();
     const breadcrumbItems = [
         { label: 'Home', link: '/', icon: Home },
         { label: 'Categories', link: '/categories' },
-        { label: categoryName, link: `/categories/${categoryName}` },
+        { label: categoryName },
     ];
 
     return (
@@ -77,7 +121,7 @@ const ProductList = () => {
                     <CustomPagination />
                     <Grid container spacing={2} >
                         <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 3 }}>
-                            <CustomFilters />
+                            <CustomFilters dummyProducts={dummyProducts} />
                         </Grid>
                         <Grid item size={{ xs: 12, sm: 12, md: 12, lg: 9 }}>
                             {dummyProducts.length > 0 ? (

@@ -1,0 +1,43 @@
+.customaccordion {
+    padding: 10px;
+    background-color: #fff;
+    /* border-top: 1px solid #C9CFD7A3; */
+}
+
+.customaccordion .MuiPaper-root {
+    box-shadow: none !important;
+    background-color: unset !important;
+}
+
+.customaccordion .MuiAccordionSummary-root {
+    min-height: 30px !important;
+    padding: 0px;
+}
+
+.customaccordion .MuiAccordionSummary-root.Mui-expanded {
+    min-height: 50px !important;
+}
+
+.customaccordion .MuiAccordionSummary-content {
+    margin: 0px !important;
+    font-family: var(--base-font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #13101E;
+}
+
+.customaccordion .Mui-expanded {
+    margin: 0px !important;
+}
+.customaccordion .MuiAccordionSummary-expandIconWrapper{
+    color: #13101E;
+}
+.customaccordion .MuiAccordionDetails-root {
+    padding: 0px !important;
+}
+
+.customaccordion .MuiAccordionActions-root {
+    padding: 20px 0px 0px 0px !important;
+
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import { TextField } from '@mui/material';
 import '../../../styles/customtextfield.css';
 
-const CustomTextField = ({ sx, size, label, error, helperText, type = "", placeholder = "", ...props }) => {
+const CustomTextField = ({ variant, sx, value, onChange, size, label, error, helperText, type = "", placeholder = "", ...props }) => {
     return (
         <div className='common-textfiled'>
             <TextField
@@ -12,9 +12,12 @@ const CustomTextField = ({ sx, size, label, error, helperText, type = "", placeh
                 fullWidth
                 error={error}
                 helperText={helperText}
-                {...props}
                 sx={sx}
                 size={size}
+                value={value}
+                onChange={onChange}
+                variant={variant}
+                {...props}
             />
         </div>
     )

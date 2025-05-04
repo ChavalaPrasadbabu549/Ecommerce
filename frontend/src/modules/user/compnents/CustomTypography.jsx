@@ -3,10 +3,10 @@ import '../../../styles/customtypography.css'
 import { Typography } from '@mui/material';
 
 
-const CustomTypography = ({ label, variant, className, children }) => {
+const CustomTypography = ({ label, variant, className, sx, children }) => {
     return (
         <div className='custom-typography'>
-            <Typography variant={variant} className={className}>{label} {children}</Typography>
+            <Typography variant={variant} className={className} sx={sx}>{label} {children}</Typography>
         </div>
     )
 }

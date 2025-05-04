@@ -1,0 +1,30 @@
+.customcheckbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.customcheckbox .MuiSvgIcon-root {
+    cursor: pointer;
+}
+
+.customcheckbox .MuiFormControlLabel-root {
+    margin: 0px;
+}
+
+.customcheckbox .MuiCheckbox-root {
+    color: #626262 !important;
+    padding: 0px 10px 0px 0px !important;
+}
+
+.customcheckbox .MuiCheckbox-root.Mui-checked {
+    color: #1B4B66 !important;
+}
+
+.customcheckbox .MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-family: var(--secondbase-font-family);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #626262;
+}

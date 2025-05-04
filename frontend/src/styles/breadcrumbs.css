@@ -22,3 +22,7 @@
 .breadcrumbs-section .MuiBreadcrumbs-root ol li a:hover {
     color: #2DA5F3;
 }
+
+.breadcrumbs-section  .MuiBreadcrumbs-root ol li .breadcrumb-active {
+    color: #2DA5F3;
+}

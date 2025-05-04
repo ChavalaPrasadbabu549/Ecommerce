@@ -7,6 +7,7 @@ import VendorLogin from './modules/vendor/pages/Login';
 import VendorDashboard from './modules/vendor/pages/Dashboard'
 import Categories from './modules/user/pages/Categories';
 import ProductList from './modules/user/compnents/ProductList';
+import Product from './modules/user/pages/Product';
 
 
 // const SuperadminRoutes = () => {
@@ -42,7 +43,8 @@ const UserRoutes = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path='/categories' element={<Categories />} />
-          <Route path="/categories/:categoryName" element={<ProductList />} />
+        <Route path="/categories/:categoryName" element={<ProductList />} />
+        <Route path="/product/:categoryName/:productName" element={<Product />} />
       </Route>
     </Routes>
   );

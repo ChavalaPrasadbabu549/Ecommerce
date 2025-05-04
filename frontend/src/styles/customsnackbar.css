@@ -1,0 +1,38 @@
+.customsnackbar .MuiSnackbar-root {
+    width: 100%;
+}
+
+.customsnackbar .product-snackbar .MuiPaper-root.MuiAlert-root {
+    background-color: #F3F9FB;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px;
+}
+
+.customsnackbar .product-snackbar .MuiPaper-root.MuiAlert-root .MuiAlert-message {
+    font-family: var(--secondbase-font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: var(--custom-text-color);
+    padding: 0px;
+}
+
+.customsnackbar .product-snackbar .MuiPaper-root.MuiAlert-root .MuiAlert-action {
+    padding: 0px;
+}
+
+.customsnackbar .product-snackbar .MuiPaper-root.MuiAlert-root .MuiAlert-action .MuiIconButton-root {
+    padding: 0px;
+}
+
+.customsnackbar .product-snackbar .MuiPaper-root.MuiAlert-root .MuiAlert-action .MuiSvgIcon-root {
+    color: var(--custom-text-color);
+}
+
+.customsnackbar .product-snackbar .MuiPaper-root.MuiAlert-root .MuiAlert-icon {
+    padding: 0px;
+    margin: 0px;
+}

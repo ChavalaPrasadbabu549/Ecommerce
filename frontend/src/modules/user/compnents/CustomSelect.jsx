@@ -1,30 +1,57 @@
-
 import React from "react";
 import '../../../styles/customtextfield.css';
-import { FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
+import {
+    FormControl,
+    InputLabel,
+    Select,
+    MenuItem,
+    FormHelperText
+} from "@mui/material";
 
+const CustomSelect = ({
+    label,
+    options = [],
+    option,
+    setoption,
+    error,
+    helperText,
+    placeholder = "Select",
+    showLabelAbove = false,
+    sx,
+    size = "small",
+    inputProps,
+    IconComponent,
+    ...rest
+}) => {
+    const safeLabel = label || "select";
+    const labelId = `select-label-${safeLabel.replace(/\s+/g, '-')}`;
 
-const CustomSelect = ({ label, options, option, setoption, error, helperText, placeholder, showLabelAbove, sx, size, inputProps, IconComponent, ...rest }) => {
     return (
         <div className="common-textfiled">
             {showLabelAbove && (
-                <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+                <InputLabel id={`${labelId}-above`}>
+                    {label}
+                </InputLabel>
             )}
-            <FormControl fullWidth size={size} variant="outlined" {...rest}>
+            <FormControl fullWidth size={size} variant="outlined" error={error} {...rest}>
+                {!showLabelAbove && label && (
+                    <InputLabel id={labelId}>{label}</InputLabel>
+                )}
                 <Select
-                    labelId={"demo-simple-select-label"}
-                    id="demo-simple-select"
+                    labelId={labelId}
+                    id={`select-${safeLabel}`}
                     value={option}
                     onChange={(e) => setoption(e.target.value)}
-                    placeholder={placeholder}
                     fullWidth
-                    error={error}
+                    placeholder={placeholder}
                     sx={sx}
                     IconComponent={IconComponent}
                     inputProps={inputProps}
-                    label={label}
+                    label={!showLabelAbove ? label : undefined}
                 >
-                    <MenuItem value="" disabled>{placeholder}</MenuItem>
+                    <MenuItem value="" disabled>
+                        {placeholder}
+                    </MenuItem>
                     {options.map((opt, index) => (
                         <MenuItem key={index} value={opt.value}>
                             {opt.label}
@@ -33,7 +60,7 @@ const CustomSelect = ({ label, options, option, setoption, error, helperText, pl
                 </Select>
                 {error && <FormHelperText>{helperText}</FormHelperText>}
             </FormControl>
-        </div >
+        </div>
     );
 };
 
