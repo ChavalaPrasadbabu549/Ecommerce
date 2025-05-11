@@ -8,8 +8,8 @@ import CustomTypography from './CustomTypography';
 import CustomSnackbar from './CustomSnackbar';
 
 const ProductCard = ({ product }) => {
-    const { categoryName } = useParams();
     const navigate = useNavigate();
+    const { categoryName } = useParams();
 
     const handleClick = () => {
         navigate(`/product/${categoryName}/${encodeURIComponent(product.name)}`, { state: { product } });
@@ -17,9 +17,10 @@ const ProductCard = ({ product }) => {
     const [liked, setLiked] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
 
-    const handleWishlistClick = () => {
+    const handleWishlistClick = (event) => {
         setLiked(!liked);
         setOpenSnackbar(true);
+        event.stopPropagation();
     };
 
     return (

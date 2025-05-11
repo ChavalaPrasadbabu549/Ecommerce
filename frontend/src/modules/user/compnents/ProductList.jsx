@@ -1,6 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import zara from '../../../assets/zara.jpg';
+const thumbimg1 = "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+const thumbimg2 = "https://images.pexels.com/photos/794064/pexels-photo-794064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+const thumbimg3 = "https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg";
+const thumbimg4 = "https://media.istockphoto.com/id/2165616608/photo/kannada-music-maestro.jpg?s=1024x1024&w=is&k=20&c=aFN2U-YACdBPqjJ9VoHSINWyBxnPhVeoP_kHXWPXUeo=";
+const thumbimg5 = "https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+const thumbimg6 = "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg";
+const thumbimg7 = "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 import zara_women from '../../../assets/zara-women.jpg';
 import { Home } from '@mui/icons-material';
 import { Container, Grid } from '@mui/material';
@@ -18,9 +25,12 @@ const dummyProducts = [
         price: '₹125',
         img: zara,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Blazer+1",
-            "https://via.placeholder.com/60x60?text=Blazer+2",
-            "https://via.placeholder.com/60x60?text=Blazer+3"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg7,
         ]
     },
     {
@@ -30,8 +40,13 @@ const dummyProducts = [
         price: '₹125',
         img: zara_women,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Sunglass+1",
-            "https://via.placeholder.com/60x60?text=Sunglass+2"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     },
     {
@@ -41,9 +56,13 @@ const dummyProducts = [
         price: '₹199',
         img: zara,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Sneaker+1",
-            "https://via.placeholder.com/60x60?text=Sneaker+2",
-            "https://via.placeholder.com/60x60?text=Sneaker+3"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     },
     {
@@ -53,8 +72,13 @@ const dummyProducts = [
         price: '₹149',
         img: zara_women,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Dress+1",
-            "https://via.placeholder.com/60x60?text=Dress+2"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     },
     {
@@ -64,8 +88,13 @@ const dummyProducts = [
         price: '₹179',
         img: zara,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Jeans+1",
-            "https://via.placeholder.com/60x60?text=Jeans+2"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     },
     {
@@ -75,8 +104,13 @@ const dummyProducts = [
         price: '₹159',
         img: zara_women,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Bag+1",
-            "https://via.placeholder.com/60x60?text=Bag+2"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     },
     {
@@ -86,8 +120,13 @@ const dummyProducts = [
         price: '₹99',
         img: zara,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Shirt+1",
-            "https://via.placeholder.com/60x60?text=Shirt+2"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     },
     {
@@ -97,8 +136,13 @@ const dummyProducts = [
         price: '₹89',
         img: zara_women,
         thumbnails: [
-            "https://via.placeholder.com/60x60?text=Scarf+1",
-            "https://via.placeholder.com/60x60?text=Scarf+2"
+            thumbimg1,
+            thumbimg2,
+            thumbimg3,
+            thumbimg4,
+            thumbimg5,
+            thumbimg6,
+            thumbimg7,
         ]
     }
 ];

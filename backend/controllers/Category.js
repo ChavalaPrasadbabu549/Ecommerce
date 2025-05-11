@@ -19,8 +19,8 @@ const upload = multer({
 const Categorycontroller = {
     // Create Category
     async createCategory(req, res) {
+        const SuperAdminId = req.user.id;
         try {
-            const SuperAdminId = req.user.id;
             const { name } = req.body;
 
             if (!name) {

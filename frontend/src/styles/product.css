@@ -38,27 +38,95 @@
 
 
 /* product */
-
-.product-main-image {
+.image-gallery {
     width: 100%;
-    height: 400px;
-    object-fit: fill;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 10px;
+    padding: 30px;
 }
 
-.product-thumbnails {
-    display: flex;
-    gap: 0.5rem;
+/* Embla Carousel Styles */
+.embla {
+  position: relative;
+  padding: 0 40px;
+  margin: 20px 0;
 }
 
-.product-thumbnails img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    cursor: pointer;
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  gap: 10px;
+  user-select: none;
+}
+
+.embla__slide {
+  flex: 0 0 20%;
+  min-width: 0;
+}
+
+.embla__slide__inner {
+  position: relative;
+  padding: 5px;
+}
+
+.embla__slide__img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.embla__slide__img.active {
+  border-color: #1976d2;
+  transform: scale(1.05);
+}
+
+.embla__prev,
+.embla__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1976d2;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.embla__prev {
+  left: 0;
+}
+
+.embla__next {
+  right: 0;
+}
+
+.embla__prev:disabled,
+.embla__next:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .product-details-section {

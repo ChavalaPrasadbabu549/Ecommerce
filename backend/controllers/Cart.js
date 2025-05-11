@@ -42,24 +42,29 @@ const CartController = {
             // Check if the product already exists in the cart
             const existingItemIndex = cart.items.findIndex(item => item.product.toString() === productId);
 
+            let updatedItem;
+
             if (existingItemIndex >= 0) {
                 // Update quantity and total price if product already exists in the cart
                 cart.items[existingItemIndex].quantity += Number(quantity);
                 cart.items[existingItemIndex].totalPrice += totalPrice;
+                updatedItem = cart.items[existingItemIndex];
             } else {
-                // Add new product to the cart
-                cart.items.push({
+                // Add new item
+                const newItem = {
                     product: product,
-                    quantity,
+                    quantity: Number(quantity),
                     amount: itemPrice,
                     totalPrice,
-                });
+                };
+                cart.items.push(newItem);
+                updatedItem = newItem;
             }
 
             // Save the cart
             await cart.save();
 
-            return res.status(200).json({ success: true, message: 'Item added to cart successfully', data: cart });
+            return res.status(200).json({ success: true, message: 'Item added to cart successfully', data: updatedItem });
         } catch (error) {
             return res.status(500).json({ success: false, message: 'Server error', error: error.message });
         }
@@ -70,10 +75,8 @@ const CartController = {
 
     async getCartDetails(req, res) {
         try {
-            const userId = req.user.id; // Extract authenticated user ID (from token or middleware)
+            const userId = req.user.id;
             const cart = await Cart.findOne({ user_id: userId })
-                .populate('items.product_id', 'name description price picture');
-
             if (!cart) {
                 return res.status(404).json({ success: false, message: 'Cart not found' });
             }
@@ -153,7 +156,7 @@ const CartController = {
             }
 
             // Check if the product exists in the cart
-            const itemIndex = cart.items.findIndex(item => item.product_id.toString() === productId);
+            const itemIndex = cart.items.findIndex(item => item.product._id.toString() === productId);
 
             if (itemIndex === -1) {
                 return res.status(404).json({ success: false, message: "Product not found in the cart" });

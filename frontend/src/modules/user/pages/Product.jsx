@@ -1,186 +1,165 @@
-import React from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import '../../../styles/product.css';
 import { useParams, useLocation } from 'react-router-dom';
-import zara from '../../../assets/zara.jpg';
-import zara_women from '../../../assets/zara-women.jpg';
 import { Home } from '@mui/icons-material';
 import CustomBreadcrumbs from '../compnents/CustomBreadcrumbs';
 import { Container, Grid } from '@mui/material';
+import ReactImageMagnify from 'react-image-magnify';
+import useEmblaCarousel from 'embla-carousel-react';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 
-const dummyProducts = [
-    {
-        name: 'ZARA Suit Blazer Midnight Black Cotton',
-        rating: 4,
-        ratingCount: 120,
-        price: '₹125',
-        img: zara,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Blazer+1",
-            "https://via.placeholder.com/60x60?text=Blazer+2",
-            "https://via.placeholder.com/60x60?text=Blazer+3"
-        ]
-    },
-    {
-        name: 'ZARA Black SunGlasses Anti Dust Resistant',
-        rating: 5,
-        ratingCount: 98,
-        price: '₹125',
-        img: zara_women,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Sunglass+1",
-            "https://via.placeholder.com/60x60?text=Sunglass+2"
-        ]
-    },
-    {
-        name: 'ZARA White Sneakers Lightweight Comfort Fit',
-        rating: 4.5,
-        ratingCount: 76,
-        price: '₹199',
-        img: zara,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Sneaker+1",
-            "https://via.placeholder.com/60x60?text=Sneaker+2",
-            "https://via.placeholder.com/60x60?text=Sneaker+3"
-        ]
-    },
-    {
-        name: 'ZARA Women’s Floral Print Summer Dress',
-        rating: 4.8,
-        ratingCount: 150,
-        price: '₹149',
-        img: zara_women,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Dress+1",
-            "https://via.placeholder.com/60x60?text=Dress+2"
-        ]
-    },
-    {
-        name: 'ZARA Men’s Slim Fit Denim Jeans',
-        rating: 4.6,
-        ratingCount: 89,
-        price: '₹179',
-        img: zara,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Jeans+1",
-            "https://via.placeholder.com/60x60?text=Jeans+2"
-        ]
-    },
-    {
-        name: 'ZARA Leather Crossbody Bag Compact Style',
-        rating: 4.4,
-        ratingCount: 45,
-        price: '₹159',
-        img: zara_women,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Bag+1",
-            "https://via.placeholder.com/60x60?text=Bag+2"
-        ]
-    },
-    {
-        name: 'ZARA Cotton Crewneck T-Shirt (Pack of 2)',
-        rating: 4.3,
-        ratingCount: 134,
-        price: '₹99',
-        img: zara,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Shirt+1",
-            "https://via.placeholder.com/60x60?text=Shirt+2"
-        ]
-    },
-    {
-        name: 'ZARA Wool Blend Winter Scarf',
-        rating: 4.7,
-        ratingCount: 67,
-        price: '₹89',
-        img: zara_women,
-        thumbnails: [
-            "https://via.placeholder.com/60x60?text=Scarf+1",
-            "https://via.placeholder.com/60x60?text=Scarf+2"
-        ]
-    }
-];
+
 
 function Product() {
     const { categoryName, productName } = useParams();
     const { state } = useLocation();
     const product = state?.product;
-
     const breadcrumbItems = [
         { label: 'Home', link: '/', icon: Home },
         { label: 'Categories', link: '/categories' },
         { label: categoryName, link: `/categories/${categoryName}` },
         { label: product?.name || productName }
     ];
-    
+    const [selectedImage, setSelectedImage] = useState(product.img);
+    const [emblaRef, emblaApi] = useEmblaCarousel();
+    const [canScrollPrev, setCanScrollPrev] = useState(false);
+    const [canScrollNext, setCanScrollNext] = useState(false);
+
+    // Scroll functions
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        const onSelect = () => {
+            setCanScrollPrev(emblaApi.canScrollPrev());
+            setCanScrollNext(emblaApi.canScrollNext());
+        };
+
+        emblaApi.on('select', onSelect);
+        onSelect();
+    }, [emblaApi]);
+
+
+
 
     return (
         <>
             <CustomBreadcrumbs breadcrumbItems={breadcrumbItems} />
             <section className="product-page">
                 <Container maxWidth="xl">
-                    {product ? (
-                        <Grid container spacing={2}>
-                            <Grid item size={{ xs: 12, sm: 12, md: 6, lg: 6 }}>
-                                <img
-                                    src={product.img}
-                                    alt={product.name}
-                                    className="product-main-image"
-                                />
-                                <div className="product-thumbnails">
-                                    {dummyProducts?.thumbnails?.map((thumb, index) => (
-                                        <img key={index} src={thumb} alt={`thumb-${index}`} />
-                                    ))}
+                    <Grid container spacing={2}>
+                        <Grid item size={{ xs: 12, sm: 12, md: 6, lg: 6 }}>
+                            <div className="image-gallery">
+                                <div className="main-image-wrapper">
+                                    <ReactImageMagnify
+                                        smallImage={{
+                                            alt: 'Product Image',
+                                            src: selectedImage,
+                                            width: 550,
+                                            height: 420,
+                                        }}
+                                        largeImage={{
+                                            src: selectedImage,
+                                            width: 1400,
+                                            height: 1400
+                                        }}
+                                        imageStyle={{
+                                            borderRadius: '4px',
+                                            border: '1px solid #eee'
+                                        }}
+                                        enlargedImageContainerStyle={{
+                                            zIndex: 1000,
+                                            boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+                                            backgroundColor: 'white'
+                                        }}
+                                        enlargedImagePosition="beside"
+                                        hoverDelayInMs={200}
+                                    />
                                 </div>
-                            </Grid>
-                            <Grid item size={{ xs: 12, sm: 12, md: 6, lg: 6 }}>
-                                <h1 className="product-title">{product.name}</h1>
-                                <div className="product-pricing">
-                                    <span className="product-price">₹{product.price}</span>
-                                    {product.originalPrice && (
-                                        <>
-                                            <span className="original-price">₹{product.originalPrice}</span>
-                                            <span className="discount-label">21% OFF</span>
-                                        </>
-                                    )}
-                                </div>
-                                <p className="product-rating">
-                                    ⭐ {product.rating} stars ({product.ratingCount} reviews)
-                                </p>
-
-                                <div className="product-options">
-                                    <label>Color:</label>
-                                    <div className="color-options">
-                                        {/* Add logic to loop through color options */}
-                                        <span className="color-circle blue"></span>
-                                        <span className="color-circle gray"></span>
+                                <div className="embla">
+                                    <div className="embla__viewport" ref={emblaRef}>
+                                        <div className="embla__container">
+                                            {product?.thumbnails?.map((thumb, index) => (
+                                                <div className="embla__slide" key={index}>
+                                                    <div className="embla__slide__inner">
+                                                        <img
+                                                            src={thumb}
+                                                            alt={`thumb-${index}`}
+                                                            className={`embla__slide__img ${selectedImage === thumb ? 'active' : ''}`}
+                                                            onClick={() => setSelectedImage(thumb)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
 
-                                    <label>Memory:</label>
-                                    <select>
-                                        <option>16GB unified memory</option>
-                                    </select>
-
-                                    <label>Size:</label>
-                                    <select>
-                                        <option>14-inch Liquid Retina XDR display</option>
-                                    </select>
-
-                                    <label>Storage:</label>
-                                    <select>
-                                        <option>1TB SSD Storage</option>
-                                    </select>
+                                    <button className="embla__prev" onClick={scrollPrev} disabled={!canScrollPrev}>
+                                        <ArrowBackIosIcon fontSize="small" />
+                                    </button>
+                                    <button className="embla__next" onClick={scrollNext} disabled={!canScrollNext}>
+                                        <ArrowForwardIosIcon fontSize="small" />
+                                    </button>
                                 </div>
 
-                                <div className="product-actions">
-                                    <button className="deal-button">GET DEAL (₹90K)</button>
-                                    <button className="add-button">ADD</button>
-                                </div>
-                            </Grid>
+
+                            </div>
                         </Grid>
-                    ) : (
-                        <p>Product details not found.</p>
-                    )}
+                        <Grid item size={{ xs: 12, sm: 12, md: 6, lg: 6 }}>
+                            <h1 className="product-title">{product.name}</h1>
+                            <div className="product-pricing">
+                                <span className="product-price">₹{product.price}</span>
+                                {product.originalPrice && (
+                                    <>
+                                        <span className="original-price">₹{product.originalPrice}</span>
+                                        <span className="discount-label">21% OFF</span>
+                                    </>
+                                )}
+                            </div>
+                            <p className="product-rating">
+                                ⭐ {product.rating} stars ({product.ratingCount} reviews)
+                            </p>
+
+                            <div className="product-options">
+                                <label>Color:</label>
+                                <div className="color-options">
+                                    {/* Add logic to loop through color options */}
+                                    <span className="color-circle blue"></span>
+                                    <span className="color-circle gray"></span>
+                                </div>
+
+                                <label>Memory:</label>
+                                <select>
+                                    <option>16GB unified memory</option>
+                                </select>
+
+                                <label>Size:</label>
+                                <select>
+                                    <option>14-inch Liquid Retina XDR display</option>
+                                </select>
+
+                                <label>Storage:</label>
+                                <select>
+                                    <option>1TB SSD Storage</option>
+                                </select>
+                            </div>
+
+                            <div className="product-actions">
+                                <button className="deal-button">GET DEAL (₹90K)</button>
+                                <button className="add-button">ADD</button>
+                            </div>
+                        </Grid>
+                    </Grid>
+
                 </Container>
             </section>
         </>

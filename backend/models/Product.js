@@ -1,6 +1,21 @@
 const mongoose = require('mongoose');
 
 const ProductSchema = mongoose.Schema({
+    categoryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
+    },
+    subcategoryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Subcategory',
+        required: true
+    },
+    subsubcategoryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'SubSubCategory',
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -13,16 +28,6 @@ const ProductSchema = mongoose.Schema({
         type: String,
         required: true
     }],
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
-    },
-    subcategoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Subcategory',
-        required: true
-    },
     brand: {
         type: String,
         required: true
@@ -32,22 +37,22 @@ const ProductSchema = mongoose.Schema({
         required: false,
         trim: true,
     },
+    specifications: {
+        type: mongoose.Schema.Types.Mixed
+    },
     vendorId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Vendor',
         required: true,
     },
-    specifications: {
-        type: mongoose.Schema.Types.Mixed
-    },
     status: {
         type: Boolean,
-        default: true, // Default status is active
+        default: true,
     },
 
 },
     {
-        timestamps: true, // Adds createdAt and updatedAt fields
+        timestamps: true,
     }
 );
 
